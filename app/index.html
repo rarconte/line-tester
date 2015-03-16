@@ -7,7 +7,11 @@
 
     <title>Line Tester</title>
 
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <link href="vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -15,13 +19,100 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <style type="text/css">
+        html {
+            height: 100%;
+        }
+        body {
+            height: 100%;
+        }
+        .container {
+            height: 100%
+        }
+        .navbar-iwink {
+            background-color: #2B344D;
+            margin-bottom: 0px;
+            border-radius: 0px;
+        }
+        .navbar-brand {
+            padding-top: 10px;
+        }
+        #test {
+            height: 100%;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-    	
-    </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <nav class="navbar navbar-iwink">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#"><img src="img/logo.png" height="30"></a>
+            </div>
+        </div>
+    </nav>
+
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">Line Tester</a>
+                </li>
+                <li><a href="#">Prueba 1</a></li>
+                <li><a href="#">Prueba 2</a></li>
+                <li><a href="#">Prueba 3</a></li>
+                <li><a href="#">Prueba 4</a></li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        
+                        <div id="test"></div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+
+    <script src="vendor/jquery/dist/jquery.min.js"></script>
+    <script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="vendor/raphael/raphael-min.js"></script>
+
+    <script type="text/javascript">
+    	
+        var width = $('#test').width();
+        var height = $('#test').height();
+
+        var paper = Raphael('test', width, height);
+
+        var c = paper.rect(10, 10, 50, 50);
+        
+        var a = Raphael.animation({transform: 't800,300'}, 3000, 'linear', function(){
+
+            //var b = Raphael.animation({transform: 't100,100'}, 3000, 'linear');
+            //c.animate(b);
+        });
+        
+        c.animate(a);
+        
+        var l = paper.path('M10,20L11,21');
+
+        var c = Raphael.animation({path: 'M10,20L1000,300'}, 3000, 'linear');
+        l.animate(c);
+
+    </script>
 </body>
 </html>
